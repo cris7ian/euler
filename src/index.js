@@ -13,7 +13,6 @@ if (!argv.problem) {
     }
   }).value();
 } else { // a solution through CLI.
-
   try {
     var solution = require('./solutions/' + argv.problem);
   } catch (e) {
