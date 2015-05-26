@@ -7,7 +7,7 @@ var problems = fs.readdirSync('./src/problems');
 if (!argv.problem) {
   _(problems).forEach((problem) => {
     if (problem != '.' || problem != '..') {
-      console.log('The solution of problem ' + problem + ' is:');
+      console.log('The solution of problem ' + problem.replace('.js', '') + ' is:');
       console.log(require('./problems/' + problem)());
     }
   }).value();
@@ -19,6 +19,6 @@ if (!argv.problem) {
     console.log('No such problem.');
     process.exit(1); // a bitch ain't one.
   }
-  console.log('The solution of problem ' + argv.problem + ' is:');
+  console.log('The solution of problem ' + argv.problem.replace('.js', '') + ' is:');
   console.log(solution);
 }
