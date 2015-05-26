@@ -21,7 +21,7 @@ module.exports = () => {
   }
 
   var sum = 0;
-  var n = 0
+  var n = 0;
   while (true) {
     var fib = fibIteration(n);
     if (fib > 4000000) break;
