@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/cris7ian/euler/issues"
   },
-  "homepage": "https://github.com/cris7ian/euler"
+  "homepage": "https://github.com/cris7ian/euler",
+  "dependencies": {
+    "lodash": "^3.9.3"
+  }
 }
