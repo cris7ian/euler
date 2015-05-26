@@ -1,24 +1,25 @@
 var _ = require('lodash');
 var fs = require('fs');
 var argv = require('yargs').argv;
+var colors = require('colors');
 
-var problems = fs.readdirSync('./src/problems');
+var solutions = fs.readdirSync('./src/solutions');
 
 if (!argv.problem) {
-  _(problems).forEach((problem) => {
-    if (problem != '.' || problem != '..') {
-      console.log('The solution of problem ' + problem.replace('.js', '') + ' is:');
-      console.log(require('./problems/' + problem)());
+  _(solutions).forEach((solution) => {
+    if (solution != '.' || solution != '..') {
+      console.log(('Solution to problem #' + solution.replace('.js', '') + ' is:').yellow);
+      console.log(require('./solutions/' + solution)());
     }
   }).value();
-} else { // a problem through CLI.
+} else { // a solution through CLI.
 
   try {
-    var solution = require('./problems/' + argv.problem)();
+    var solution = require('./solutions/' + argv.problem);
   } catch (e) {
-    console.log('No such problem.');
+    console.log('No such solution.'.red);
     process.exit(1); // a bitch ain't one.
   }
-  console.log('The solution of problem ' + argv.problem + ' is:');
-  console.log(solution);
+  console.log(('Solution to problem #' + argv.problem + ' is:').yellow);
+  console.log(solution());
 }
