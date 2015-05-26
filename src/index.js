@@ -19,6 +19,6 @@ if (!argv.problem) {
     console.log('No such problem.');
     process.exit(1); // a bitch ain't one.
   }
-  console.log('The solution of problem ' + argv.problem.replace('.js', '') + ' is:');
+  console.log('The solution of problem ' + argv.problem + ' is:');
   console.log(solution);
 }
