@@ -12,7 +12,7 @@ module.exports = () => {
     var x = 0;
     var y = 1;
     var z = 1;
-    for (i = 0; i < n; i++) {
+    for (var i = 0; i < n; i++) {
       x = y;
       y = z;
       z = x + y;
