@@ -8,7 +8,6 @@ var solutions = fs.readdirSync('./src/solutions');
 if (!argv.problem) {
   _(solutions).forEach((solution) => {
     if (solution != '.' || solution != '..') {
-      console.log(solution);
       logSolution(require('./solutions/' + solution), solution.replace('.js', ''))
     }
   }).value();
