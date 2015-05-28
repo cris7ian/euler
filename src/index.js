@@ -8,8 +8,8 @@ var solutions = fs.readdirSync('./src/solutions');
 if (!argv.problem) {
   _(solutions).forEach((solution) => {
     if (solution != '.' || solution != '..') {
-      console.log(('Solution to problem #' + solution.replace('.js', '') + ' is:').yellow);
-      console.log(require('./solutions/' + solution)());
+      console.log(solution);
+      logSolution(require('./solutions/' + solution), solution.replace('.js', ''))
     }
   }).value();
 } else { // a solution through CLI.
@@ -18,6 +18,19 @@ if (!argv.problem) {
     process.exit(1); // a bitch ain't one.
   }
   var solution = require('./solutions/' + argv.problem);
-  console.log(('Solution to problem #' + argv.problem + ' is:').yellow);
-  console.log(solution());
+  logSolution(solution, argv.problem)
+}
+
+function solve(solution) {
+  var start = new Date().getTime();
+  var answer = solution();
+  var end = new Date().getTime();
+  var time = end - start;
+  return {answer: answer, time: time};
+}
+
+function logSolution(solution, problem) {
+  console.log(('Solution to problem #' + problem + ' is:').yellow);
+  var data = solve(solution);
+  console.log(data.answer + (' (took: ' + data.time+' ms)').green);
 }
