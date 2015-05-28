@@ -9,14 +9,15 @@ Hence the difference between the sum of the squares of the first ten natural num
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 */
+var _ = require('lodash');
+
 module.exports = () => {
   const n = 100;
 
   a = ( (n*n + n) / 2 ) * ( (n*n + n) / 2 ); //Gauss.
 
   b = 0;
-  for (var i = 1; i <= n; i++) {
-    b += i*i; //I know, this was lazy.
-  }
+  _.times(n, (val) => b += (val + 1)*(val + 1))
+
   return a - b;
 }

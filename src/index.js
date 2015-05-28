@@ -13,12 +13,11 @@ if (!argv.problem) {
     }
   }).value();
 } else { // a solution through CLI.
-  try {
-    var solution = require('./solutions/' + argv.problem);
-  } catch (e) {
+  if (argv.problem > solutions.length){
     console.log('No such solution.'.red);
     process.exit(1); // a bitch ain't one.
   }
+  var solution = require('./solutions/' + argv.problem);
   console.log(('Solution to problem #' + argv.problem + ' is:').yellow);
   console.log(solution());
 }
