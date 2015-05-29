@@ -14,7 +14,7 @@ module.exports = () => {
   function isPrime(number) {
     var it = true;
     for (var i = 0; i < primes.length; i ++) {
-      if (primes[i] > Math.sqrt(number)) break;
+      if (primes[i]*primes[i] > number) break; //A primer bigger than sqrt won't work.
       if (number % primes[i] == 0) {
         it = false;
       }
