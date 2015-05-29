@@ -3,20 +3,29 @@
 
  What is the 10 001st prime number?
  */
+var _ = require('lodash');
 module.exports = () => {
   const target = 10001;
   var answer = 2;
-  var n = 1;
+  var n = 0
+
+  var primes = [];
 
   function isPrime(number) {
-    var upperBound = Math.ceil(Math.sqrt(number));
-
-    for (var i = upperBound; i > 1; i--) {
-      if ((number % i == 0)) {
-        return false;
+    var it = true;
+    for (var i = 0; i < primes.length; i ++) {
+      if (primes[i] > Math.sqrt(number)) break;
+      if (number % primes[i] == 0) {
+        it = false;
       }
     }
-    return true;
+
+    if (!it) {
+      return false;
+    } else {
+      primes.push(number);
+      return true;
+    }
   }
 
   while (true) {
