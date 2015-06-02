@@ -28,7 +28,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 var _ = require('lodash');
 module.exports = () => {
   var answer = 0;
-  const strL = 13
+  const strL = 13;
 
   var number =
     "73167176531330624919225119674426574742355349194934" +
