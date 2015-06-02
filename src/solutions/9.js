@@ -22,10 +22,10 @@ module.exports = () => {
     c = b + 1;
 
     while (c <= n) {
-      while (c*c < a*a + b*b) c++;
+      while (c * c < a * a + b * b) c++;
 
-      if ((c*c == a*a + b*b) && (c <= n) && (a + b + c == 1000)) {
-        return a*b*c;
+      if ((c * c == a * a + b * b) && (c <= n) && (a + b + c == 1000)) {
+        return a * b * c;
       }
       b++;
     }
