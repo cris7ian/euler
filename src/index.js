@@ -31,5 +31,10 @@ function solve(solution) {
 function logSolution(solution, problem) {
   console.log(('Solution to problem #' + problem + ' is:').yellow);
   var data = solve(solution);
+  data.answer  = typeof data.answer === 'number' ? numberWithCommas(data.answer) : data.answer;
   console.log(data.answer + (' (took: ' + data.time+' ms)').green);
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
